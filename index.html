@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flair For Air - Professional AC Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #33838d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #0a4b5e;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #0a4b5e;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(10, 75, 94, 0.95);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 150px;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo img {
+            height: 100px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #33838d;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #33838d;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            margin-top: 80px;
+            background: linear-gradient(rgba(10, 75, 94, 0.8), rgba(10, 75, 94, 0.8)), url('https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero .btn {
+            animation: fadeIn 1.5s ease;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* About Section */
+        .about {
+            background-color: #ffffff;
+            color: #0a4b5e;
+        }
+        
+        .about h2 {
+            color: #0a4b5e;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-features {
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .feature-item i {
+            color: #33838d;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #f9f9f9;
+        }
+        
+        .services h2 {
+            color: #33838d;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-card i {
+            font-size: 2.5rem;
+            color: #33838d;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover i {
+            transform: scale(1.2);
+        }
+        
+        .service-card h3 {
+            color: #33838d;
+            font-size: 1.5rem;
+        }
+        
+        .service-card p {
+            margin-bottom: 20px;
+        }
+        
+        .service-price {
+            font-weight: 600;
+            color: #0a4b5e;
+            margin-bottom: 15px;
+        }
+        
+        /* Brands Section */
+        .brands {
+            background-color: #ffffff;
+            padding: 60px 0;
+        }
+        
+        .brands h2 {
+            color: #33838d;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .brand-item {
+            filter: grayscale(0%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .brand-item:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .brand-item img {
+            max-width: 100%;
+            height: auto;
+            max-height: 60px;
+        }
+        
+        /* Why Choose Us */
+        .why-us {
+            background-color: #33838d;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .why-us:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .why-us .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .why-us h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-item {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .benefit-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+        
+        .benefit-item i {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-item:hover i {
+            transform: rotate(15deg) scale(1.2);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background-color: #0a4b5e;
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #33838d;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #ffffff;
+        }
+        
+        .testimonials h2 {
+            color: #33838d;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        
+        .testimonial p:before,
+        .testimonial p:after {
+            content: '"';
+            font-size: 2rem;
+            color: #33838d;
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .testimonial p:before {
+            top: -15px;
+            left: -10px;
+        }
+        
+        .testimonial p:after {
+            bottom: -25px;
+            right: -10px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #33838d;
+        }
+        
+        .testimonial-rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: #33838d;
+            transform: scale(1.2);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background-color: #f9f9f9;
+        }
+        
+        .faq h2 {
+            color: #33838d;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            background: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #f0f0f0;
+        }
+        
+        .faq-question i {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            background: white;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer.show {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: #ffffff;
+        }
+        
+        .contact h2 {
+            color: #33838d;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            border-color: #33838d;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(51, 131, 141, 0.2);
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-info {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info h3 {
+            color: #33838d;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: #33838d;
+            font-size: 1.2rem;
+            width: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #33838d;
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: #0a4b5e;
+            transform: translateY(-3px);
+        }
+        
+        /* Map Section */
+        .map {
+            height: 400px;
+            background: #f9f9f9;
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0a4b5e;
+            color: #ffffff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .footer-links a:hover {
+            color: #33838d;
+            opacity: 1;
+        }
+        
+        .newsletter input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .newsletter .btn {
+            width: 100%;
+            padding: 12px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #33838d;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: #0a4b5e;
+            transform: translateY(-5px);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-content h3 {
+            color: #33838d;
+            margin-bottom: 20px;
+        }
+        
+        .modal-content p {
+            margin-bottom: 30px;
+        }
+        
+        .close-modal {
+            background: #33838d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            background: #0a4b5e;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+            }
+
+            .nav-links a {
+                margin: 0 10px;
+                display: inline-block;
+                padding: 5px 0;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="mainHeader">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="logo.png" alt="Flair For Air Logo">
+            </div>
+            <nav class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Premium Air Conditioning Services</h1>
+            <p>Expert installation, maintenance, and repair services for all AC types</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">Book a Service</a>
+                <a href="tel:+916304877215" class="btn btn-outline"><i class="fas fa-phone"></i> Call Now</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="text-center">About Flair For Air</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Flair For Air is a premier air conditioning service provider dedicated to delivering exceptional cooling solutions for homes and businesses. With years of experience in the industry, we've built a reputation for reliability, expertise, and outstanding customer service.</p>
+                    
+                    <p>Our team of certified technicians specializes in all types of AC systems, including split, window, and cassette units. We understand the importance of a properly functioning air conditioner, especially during the hot summer months, which is why we prioritize quick response times and efficient service.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Local Experts</h4>
+                                <p>Serving the community with pride for over ? years</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Certified Professionals</h4>
+                                <p>All technicians are fully certified and background checked</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Quality Guarantee</h4>
+                                <p>We stand behind our work with a satisfaction guarantee</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1600566752229-250ed79470a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AC Technician at work">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="text-center">Our Comprehensive Services</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 50px;">We offer a full range of air conditioning services to keep your home or business cool and comfortable year-round.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>AC General Service</h3>
+                    <p>Comprehensive maintenance including cleaning filters, checking refrigerant levels, inspecting electrical components, and ensuring optimal performance.</p>
+                    <div class="service-price">Starting at ₹?</div>
+                    <a href="#contact" class="btn">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tint"></i>
+                    <h3>Jet Pump Cleaning</h3>
+                    <p>Professional cleaning of jet pumps to ensure proper water drainage and prevent leakage issues in your AC unit.</p>
+                    <div class="service-price">Starting at ₹?</div>
+                    <a href="#contact" class="btn">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Emergency Repairs</h3>
+                    <p>24/7 emergency service for sudden breakdowns. We diagnose and fix issues quickly to restore your comfort.</p>
+                    <div class="service-price">Starting at ₹?</div>
+                    <a href="#contact" class="btn">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Installation & Removal</h3>
+                    <p>Expert installation of new units with proper sizing recommendations and safe removal of old systems.</p>
+                    <div class="service-price">Starting at ₹?</div>
+                    <a href="#contact" class="btn">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Copper Piping</h3>
+                    <p>Professional copper piping services for refrigerant lines with precision welding and insulation.</p>
+                    <div class="service-price">Starting at ₹?</div>
+                    <a href="#contact" class="btn">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-fan"></i>
+                    <h3>Seasonal Maintenance</h3>
+                    <p>Pre-season tune-ups to prepare your AC for summer and winterization services for the off-season.</p>
+                    <div class="service-price">Starting at ₹?</div>
+                    <a href="#contact" class="btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Brands Section -->
+    <section class="brands">
+        <div class="container">
+            <h2 class="text-center">Brands We Service</h2>
+            <p class="text-center" style="margin-bottom: 40px;">We work with all major AC brands and models</p>
+            
+            <div class="brands-grid">
+                <div class="brand-item">
+                    <img src="voltas.png" alt="Voltas">
+                </div>
+                <div class="brand-item">
+                    <img src="lg.png" alt="LG">
+                </div>
+                <div class="brand-item">
+                    <img src="samsung.png" alt="Samsung">
+                </div>
+                <div class="brand-item">
+                    <img src="daikin.png" alt="Daikin">
+                </div>
+                <div class="brand-item">
+                    <img src="hitachi.png" alt="Hitachi">
+                </div>
+                <div class="brand-item">
+                    <img src="whirlpool.png" alt="Whirlpool">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us Section -->
+    <section class="why-us">
+        <div class="container text-center">
+            <h2>Why Choose Flair For Air</h2>
+            <p style="max-width: 800px; margin: 0 auto 50px;">We go above and beyond to provide exceptional service that keeps our customers coming back year after year.</p>
+            
+            <div class="benefits">
+                <div class="benefit-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certified Technicians</h3>
+                    <p>Our team consists of highly trained and certified AC professionals with extensive experience.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Same-Day Service</h3>
+                    <p>We prioritize quick response with most service calls completed the same day.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-rupee-sign"></i>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees - we provide upfront pricing before any work begins.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Genuine Parts</h3>
+                    <p>We use only manufacturer-approved parts for all repairs and replacements.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Warranty Protection</h3>
+                    <p>All our services come with a warranty for your peace of mind.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>Customer Focus</h3>
+                    <p>Your satisfaction is our top priority - we won't stop until you're happy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="1500">0</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="8">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="24">0</div>
+                    <div class="stat-label">Hour Emergency</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">ACs Serviced</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container text-center">
+            <h2>Customer Experiences</h2>
+            <p style="max-width: 800px; margin: 0 auto 50px;">Don't just take our word for it - hear what our customers have to say about their experiences with Flair For Air.</p>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>I called Flair For Air when my AC stopped working during a heatwave. They arrived within two hours, diagnosed the problem quickly, and had my system running like new. The technician was professional, knowledgeable, and courteous. I've since signed up for their annual maintenance plan.</p>
+                    <div class="testimonial-author">- Ramesh K., Residential Customer</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>As a small business owner, I rely on Flair For Air to maintain our office AC systems. They've consistently provided excellent service at reasonable prices. What I appreciate most is their preventative maintenance approach that has saved us from costly breakdowns.</p>
+                    <div class="testimonial-author">- Priya M., Business Owner</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>We had Flair For Air install new AC units in our home last summer. From the initial consultation to the final installation, their team was professional and efficient. They took the time to explain our options and didn't try to upsell us on units we didn't need. The systems have been running perfectly ever since.</p>
+                    <div class="testimonial-author">- Arun S., Homeowner</div>
+                </div>
+                <div class="slider-nav">
+                    <div class="slider-dot active" data-index="0"></div>
+                    <div class="slider-dot" data-index="1"></div>
+                    <div class="slider-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="text-center">Frequently Asked Questions</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 50px;">Find answers to common questions about our AC services and maintenance.</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How often should I service my air conditioner?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We recommend servicing your AC unit at least once a year, ideally before the start of the cooling season. For heavily used systems or in dusty environments, twice-yearly maintenance may be beneficial to ensure optimal performance and efficiency.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's included in a general AC service?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our comprehensive general service includes: cleaning or replacing air filters, checking and cleaning condenser and evaporator coils, inspecting and cleaning drain lines, checking refrigerant levels, testing thermostat operation, inspecting electrical connections, and lubricating moving parts.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does an AC service typically take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A standard service appointment usually takes between 45 minutes to 2 hours, depending on the type and condition of your AC unit. More complex systems or those requiring additional repairs may take longer.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What are signs that my AC needs repair?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Common warning signs include: reduced cooling capacity, unusual noises, foul odors, frequent cycling on and off, higher than normal energy bills, water leaks, or the system not turning on at all. If you notice any of these issues, it's best to call for service promptly.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer emergency services?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide 24/7 emergency AC repair services for situations where your cooling system has completely failed, especially during extreme weather conditions. Emergency service calls are prioritized and we strive to respond as quickly as possible.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept cash, all major credit/debit cards, UPI payments, and bank transfers. For larger projects like installations, we also offer financing options through partner providers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="text-center">Get In Touch</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 50px;">Ready to schedule service or have questions? Contact us today for fast, friendly assistance.</p>
+            
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form id="serviceRequestForm">
+                        <input type="text" name="name" placeholder="Your Name*" required>
+                        <input type="tel" name="phone" placeholder="Phone Number*" required>
+                        <input type="email" name="email" placeholder="Email Address">
+                        <select name="service" required>
+                            <option value="">Select Service Needed*</option>
+                            <option value="General Service">AC General Service</option>
+                            <option value="Jet Pump Cleaning">Jet Pump Cleaning</option>
+                            <option value="Breakdown Repair">AC Breakdown or Complaint</option>
+                            <option value="Installation">Installation & Removal</option>
+                            <option value="Copper Piping">Advanced Copper Piping</option>
+                            <option value="Other">Other Service</option>
+                        </select>
+                        <select name="ac-type">
+                            <option value="">AC Type (If Known)</option>
+                            <option value="Split AC">Split AC</option>
+                            <option value="Window AC">Window AC</option>
+                            <option value="Cassette AC">Cassette AC</option>
+                            <option value="Tower AC">Tower AC</option>
+                        </select>
+                        <textarea name="message" placeholder="Describe your issue or special requests"></textarea>
+                        <button type="submit" class="btn">Request Service</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-phone"></i> +91 6304877215</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Serving Local Area</p>
+                    <p><i class="fas fa-clock"></i> Service Hours: Mon-Sun, 8:00 AM - 8:00 PM</p>
+                    <p><i class="fas fa-envelope"></i> flairforair@gmail.com</p>
+                    
+                    <h3 style="margin-top: 40px;">Service Areas</h3>
+                    <p><i class="fas fa-check-circle"></i> All Local Areas</p>
+                    <p><i class="fas fa-check-circle"></i> Residential & Commercial</p>
+                    <p><i class="fas fa-check-circle"></i> Emergency Service Available</p>
+                    
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Map Section -->
+    <section class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.260317382671!2d78.3677563153554!3d17.44795050511237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI2JzUyLjYiTiA3OMKwMjInMTAuMyJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Flair For Air</div>
+                    <p>Your trusted local AC service experts providing reliable, efficient, and affordable cooling solutions since 2015.</p>
+                    <p><i class="fas fa-award"></i> Certified Professionals</p>
+                    <p><i class="fas fa-shield-alt"></i> Guaranteed Satisfaction</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">AC Maintenance</a></li>
+                        <li><a href="#">Emergency Repairs</a></li>
+                        <li><a href="#">Installation</a></li>
+                        <li><a href="#">Copper Piping</a></li>
+                        <li><a href="#">Jet Pump Cleaning</a></li>
+                        <li><a href="#">Seasonal Tune-ups</a></li>
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for maintenance tips and special offers</p>
+                    <input type="email" placeholder="Your Email">
+                    <button class="btn">Subscribe</button>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © <span id="year"></span> Flair For Air. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+    
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h3>Thank You!</h3>
+            <p>Your service request has been submitted successfully. We'll contact you shortly to confirm your appointment.</p>
+            <button class="close-modal">Close</button>
+        </div>
+    </div>
+    
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        // Testimonial Slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentTestimonial = 0;
+        
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+                showTestimonial(index);
+            });
+        });
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+        
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                const answer = item.querySelector('.faq-answer');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(faqItem => {
+                    if (faqItem !== item) {
+                        faqItem.querySelector('.faq-question').classList.remove('active');
+                        faqItem.querySelector('.faq-answer').classList.remove('show');
+                    }
+                });
+                
+                // Toggle current item
+                question.classList.toggle('active');
+                answer.classList.toggle('show');
+            });
+        });
+        
+        // Animated stats counter
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statsSection = document.querySelector('.stats');
+        
+        function animateStats() {
+            const statsPosition = statsSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (statsPosition < screenPosition) {
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-count'));
+                    const speed = 200; // Lower for faster animation
+                    const count = parseInt(stat.textContent);
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        stat.textContent = Math.ceil(count + increment);
+                        setTimeout(animateStats, 1);
+                    } else {
+                        stat.textContent = target;
+                    }
+                });
+            }
+        }
+        
+        window.addEventListener('scroll', animateStats);
+        
+        // Form Submission
+        const form = document.getElementById('serviceRequestForm');
+        const modal = document.getElementById('successModal');
+        const closeModal = document.querySelector('.close-modal');
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show the success modal
+            modal.style.display = 'flex';
+            form.reset();
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjusted for fixed header
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('.mobile-menu-btn').classList.remove('active');
+                        document.querySelector('.nav-links').classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
